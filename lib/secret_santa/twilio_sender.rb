@@ -1,30 +1,16 @@
-require 'twilio-ruby'
-
 class TwilioSender
-  attr_accessor :account_sid, :auth_token, :from
+  attr_accessor :client, :from
 
-  def initialize(account_sid, auth_token, from)
-    self.account_sid = account_sid
-    self.auth_token = auth_token
+  def initialize(twilio_client, from)
+    self.client = twilio_client
     self.from = from
   end
 
   def send(to, body)
-    if REALLY_SENDING
-      twilio_client.account.messages.create({
-        from: from,
-        to: to,
-        body: body,
-      })
-    else
-      puts "**Testing: not really sending text messages\nThe message would be as follows:\n\n"
-      puts "to: #{to}"
-      puts "message: #{body}"
-      puts '========'
-    end
-  end
-
-  def twilio_client
-    @twilio_client ||= Twilio::REST::Client.new account_sid, auth_token
+    client.account.messages.create({
+      from: from,
+      to: to,
+      body: body,
+    })
   end
 end

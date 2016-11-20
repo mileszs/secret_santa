@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require "ostruct"
 require_relative "../lib/secret_santa"
 
 # Do some testing, then set this to true when ready to send
@@ -9,6 +10,8 @@ REALLY_SENDING = ENV.fetch("REALLY_SENDING", false)
 Logger = SantaLogger.new(REALLY_SENDING)
 
 people_config = YAML.load_file('config/people.yml')
+twilio_config = OpenStruct.new(YAML.load_file('config/twilio.yml'))
+twilio_client = Twilio::REST::Client.new(twilio_config.twilio_account_sid, twilio_config.twilio_auth_token)
 
 people = people_config['people'].map do |attrs|
   Person.new(attrs)
@@ -51,14 +54,19 @@ people.each do |person|
   Logger.log person.with_santa
 end
 
-twilio_config = YAML.load_file('config/twilio.yml')
-twilio_sender = TwilioSender.new(
-  twilio_config['twilio_account_sid'],
-  twilio_config['twilio_auth_token'],
-  twilio_config['twilio_from_number']
-)
+sender = if REALLY_SENDING
+  TwilioSender.new(
+    twilio_client,
+    twilio_config.twilio_from_number
+  )
+else
+  FakeSender.new(
+    Logger,
+    twilio_config.twilio_from_number
+  )
+end
 
 people.each do |person|
   message = "THIS IS SANTABOT 5000. YOU ARE ORDERED TO BUY A PRESENT FOR THE MEAT-BAG NAMED #{person.name.upcase}."
-  twilio_sender.send(person.santa.phone, message)
+  sender.send(person.santa.phone, message)
 end
