@@ -23,7 +23,7 @@ class Emailer
       smtp.start(domain, account_address, account_password, :login) do |smtp|
         smtp.send_message(email.message, email.from_address, email.to_address)
       end
-      
+
       print "sent!\n"
     else
       puts "**Testing; not really mailing anything**\nEmail would be as follows:\n\n"
