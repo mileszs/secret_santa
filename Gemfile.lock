@@ -11,6 +11,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    rake (11.3.0)
     slop (3.6.0)
     twilio-ruby (4.13.0)
       builder (>= 2.1.2)
@@ -23,6 +24,7 @@ PLATFORMS
 DEPENDENCIES
   minitest
   pry
+  rake
   twilio-ruby
 
 BUNDLED WITH
