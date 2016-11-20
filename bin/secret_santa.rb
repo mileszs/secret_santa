@@ -6,7 +6,7 @@ require_relative "../lib/secret_santa"
 # Will cause logging output to be shushed and mails to be sent
 REALLY_SENDING = ENV.fetch("REALLY_SENDING", false)
 
-Logger = SantaLogger.new
+Logger = SantaLogger.new(REALLY_SENDING)
 
 people_config = YAML.load_file('config/people.yml')
 
