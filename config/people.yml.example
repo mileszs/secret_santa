@@ -1,29 +1,29 @@
 people:
   -
-    name: Edward
-    group: New York Smiths
-    email: edward@example.com
+    name: Bilbo
+    group: Bagginses
+    phone: 15555555555
   -
-    name: Kara
-    group: New York Smiths
-    email: kara@example.com
+    name: Frodo
+    group: Bagginses
+    phone: 15555555555
   -
-    name: Alberto
-    group: Atlanta Smiths
-    email: alberto@example.com
+    name: Gandalf
+    group: Ishtari
+    phone: 15555555555
   -
-    name: Natasha
-    group: Atlanta Smiths
-    email: jeanette@exaple.com
+    name: Saruman
+    group: Ishtari
+    phone: 15555555555
   -
-    name: Tyler
-    group: Seattle Joneses
-    email: tyler@example.com
+    name: Gimli
+    group: Dwarves
+    phone: 15555555555
   -
-    name: Linda
-    group: Seattle Joneses
-    email: linda@example.com
+    name: Legolas
+    group: Elves
+    phone: 15555555555
   -
-    name: Fiona
-    group: Seattle Joneses
-    email: fiona@example.com
+    name: Aragorn
+    group: Rangers
+    phone: 15555555555

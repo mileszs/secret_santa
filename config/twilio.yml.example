@@ -1,0 +1,3 @@
+twilio_account_sid: somerandomchars
+twilio_auth_token: morerandomchars
+twilio_from_number: 15555555555
