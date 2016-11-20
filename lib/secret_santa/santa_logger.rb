@@ -1,5 +1,5 @@
 class SantaLogger
-  
+
   attr_accessor :sending
 
   def log(message)
