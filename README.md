@@ -13,8 +13,8 @@ Then I, @mileszs, got ahold of this and made a bunch of changes. Most are immate
 - Clone the repo
 - Copy each of the `.yml.example` files in `config/` to a corresponding `.yml` and customize.
 - `bundle install`
-- Run `bundle exec ruby secret_santa.rb` and examine the output
-- When you're satisfied, run `REALLY_SENDING=true bundle exec ruby secret_santa.rb`
+- Run `bundle exec ruby bin/secret_santa.rb` and examine the output
+- When you're satisfied, run `REALLY_SENDING=true bundle exec ruby bin/secret_santa.rb`
 
 ## Dependencies
 
